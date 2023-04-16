@@ -1,0 +1,44 @@
+# 说明
+
+还是用的 `cf-01-hello` 的 `wrangler.tom`配置文件，所以这个项目发布会覆盖Cloudflare上的 `cd-01-hello`
+
+# 命令
+
+```bash
+# 查看版本
+wrangler -v
+
+# 登录worker
+wrangler login
+
+# 创建项目
+wrangler init cfw-demo-01
+
+# 本地运行
+npm i
+wrangler dev -l
+
+# 发布
+wrangler publish
+```
+
+# 简单路由 demo01
+
+> https://github.com/cloudflare/worker-template-router/blob/master/index.js
+> https://developers.cloudflare.com/workers/tutorials/connect-to-turso-using-workers/#install-extra-libraries
+
+```bash
+npm install itty-router
+```
+
+## get方法  
+
+> http://localhost:8787
+> http://127.0.0.1:8787/user/1111
+> http://localhost:8787/test
+
+## post方法
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d "{\"name\": \"six\"}" localhost:8787/post
+```
