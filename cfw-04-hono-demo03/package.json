@@ -1,0 +1,16 @@
+{
+  "name": "cfw-01-hello",
+  "version": "0.0.0",
+  "devDependencies": {
+    "wrangler": "2.15.1"
+  },
+  "private": true,
+  "scripts": {
+    "start": "wrangler dev --local",
+    "deploy": "wrangler publish"
+  },
+  "dependencies": {
+    "color-convert": "^2.0.1",
+    "hono": "^3.1.6"
+  }
+}
