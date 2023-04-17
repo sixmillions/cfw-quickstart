@@ -22,9 +22,22 @@ wrangler dev -l
 wrangler publish
 ```
 
-# 请求api示例 demo01
+# 引入honojs框架
 
-用fetch请求接口数据
+> https://hono.dev
 
-> http://127.0.0.1:8787/api/people
-> http://127.0.0.1:8787/api/people/1
+```bash
+npm install hono
+```
+ 
+## get
+
+> http://localhost:8787
+> http://localhost:8787/user/111
+> http://localhost:8787/other
+
+## post
+
+```bash
+curl -X POST http://localhost:8787/post
+```
