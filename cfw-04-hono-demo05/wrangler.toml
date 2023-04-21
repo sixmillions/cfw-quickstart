@@ -1,0 +1,7 @@
+name = "cfw-01-hello"
+main = "src/index.js"
+compatibility_date = "2023-04-17"
+
+kv_namespaces = [
+  { binding = "KV", id = "514111308a4a47fbbad44da622af7831", preview_id = "5ae5341104be4d6f95fe416b2f17a924" }
+]
