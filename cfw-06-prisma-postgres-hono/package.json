@@ -1,0 +1,17 @@
+{
+  "name": "cfw-01-hello",
+  "version": "0.0.0",
+  "devDependencies": {
+    "prisma": "^4.13.0",
+    "wrangler": "2.15.1"
+  },
+  "private": true,
+  "scripts": {
+    "start": "prisma generate --data-proxy && wrangler dev --local",
+    "deploy": "wrangler publish"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.13.0",
+    "hono": "^3.1.6"
+  }
+}

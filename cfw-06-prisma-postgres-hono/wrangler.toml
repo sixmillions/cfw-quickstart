@@ -1,0 +1,6 @@
+name = "cfw-01-hello"
+main = "src/index.js"
+compatibility_date = "2023-04-16"
+
+[vars]
+DATABASE_URL="prisma://aws-eu-central-1.prisma-data.com/?api_key=xxxxxx"

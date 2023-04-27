@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 发布
+datasource db {
+  provider = "postgresql"
+  url      = env("")
+}
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+model FileUploadHistory {
+  id          Int       @id @default(autoincrement()) // 自增，使用BigInt时，序列化会报错，所以这里使用了Int
+  fileUrl     String    @map("file_url") @db.VarChar(100) // 字符串类型，映射到数据库的file_url; 不加 @db.VarChar(100) 默认TEXT类型，加了就是varchar类型
+  fileName    String?   @map("file_name") @db.VarChar(100) //?的意思是可以为null
+  fileS3Url   String?   @map("file_s3_url") @db.VarChar(100)
+  fileNewName String?   @map("file_new_name") @db.VarChar(50)
+  vendor_name String?   @map("vendor_name") @db.VarChar(50)
+  bucketName  String?   @map("bucket_name") @db.VarChar(50)
+  filePath    String?   @map("file_path") @db.VarChar(100)
+  fileSize    Int?   @map("file_size") @db.Integer
+  mediaType   String?   @map("media_type") @db.VarChar(50)
+  file_suffix String?   @map("file_suffix") @db.VarChar(50)
+  createdBy   String?   @default("sys") @map("created_by") // 默认值 sys
+  createdAt   DateTime? @default(now()) @map("created_at")
+  updatedBy   String?   @default("sys") @map("update_by")
+  updatedAt   DateTime? @default(now()) @updatedAt @map("update_at") // @updatedAt 调用模型更新方法会自动更新时间
+
+  @@map("file_upload_history")
+}
